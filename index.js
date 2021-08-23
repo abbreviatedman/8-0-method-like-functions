@@ -5,27 +5,14 @@
  * @returns {number} the new length of the array.
  */
 
-function myPushFunction(array, element) {
-  array[array.length] = element;
-
-  return array.length;
-}
+function myPushFunction(array, element) {}
 
 /**
  * Removes the last element of the array and returns the removed element, or undefined if the array is empty. Do not use the pop method.
  * @param {Array[*]} array - an array of any kind of elements.
  * @returns {*} - the removed element
  */
-function myPopFunction(array) {
-  if (array.length === 0) {
-    return undefined;
-  }
-
-  const element = array[array.length - 1];
-  array.length--;
-
-  return element;
-}
+function myPopFunction(array) {}
 
 /**
  * Determines whether an array includes a specific value within its entries. Do not use the includes method.
