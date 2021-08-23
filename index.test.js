@@ -7,6 +7,7 @@ const {
   myJoinFunction,
   myReverseFunction,
   myUnshiftFunction,
+  myShiftFunction,
 } = require("./index");
 
 describe("myPushFunction()", () => {
@@ -444,5 +445,55 @@ describe("myUnShiftFunction()", () => {
     const element = "yas";
     const funcString = myUnshiftFunction.toString();
     expect(funcString.includes(".unshift")).toBe(false);
+  });
+});
+
+describe("myShiftFunction()", () => {
+  test("removes the first element from the array", () => {
+    const actual1 = [{ one: 1 }, { two: 2 }, { three: 3 }, { four: 4 }];
+    myShiftFunction(actual1);
+    const expected1 = [{ two: 2 }, { three: 3 }, { four: 4 }];
+    expect(actual1).toEqual(expected1);
+
+    const actual2 = ["fire", "water", "earth", "air"];
+    myShiftFunction(actual2);
+    const expected2 = ["water", "earth", "air"];
+    expect(actual2).toEqual(expected2);
+  });
+
+  test("returns the removed element from the array", () => {
+    const array1 = [1, 2, 3, 4, 5, 6];
+    const actual1 = myShiftFunction(array1);
+    const expected1 = 1;
+    expect(actual1).toBe(expected1);
+
+    const array2 = ["fire", "water", "earth", "air"];
+    const actual2 = myShiftFunction(array2);
+    const expected2 = "fire";
+    expect(actual2).toBe(expected2);
+  });
+
+  test("returns undefined if the array is empty", () => {
+    expect(myShiftFunction([])).toBeUndefined();
+  });
+
+  test("changes the original array's length", () => {
+    const array1 = [{ one: 1 }, { two: 2 }, { three: 3 }];
+    myShiftFunction(array1);
+    const actual1 = array1.length;
+    const expected1 = 2;
+    expect(actual1).toEqual(expected1);
+
+    const array2 = ["fire", "water", "earth", "air"];
+    myShiftFunction(array2);
+    const actual2 = array2.length;
+    const expected2 = 3;
+    expect(actual2).toEqual(expected2);
+  });
+
+  test("does not use the shift method", () => {
+    const array = ["module", "one", "is", "finally", "over"];
+    const funcString = myShiftFunction.toString();
+    expect(funcString.includes(".shift")).toBe(false);
   });
 });
