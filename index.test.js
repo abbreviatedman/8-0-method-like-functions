@@ -51,8 +51,16 @@ describe("myPushFunction()", () => {
 });
 
 describe("myPopFunction()", () => {
-  test("returns undefined if the array is empty", () => {
-    expect(myPopFunction([])).toBeUndefined();
+  test("removes the last element from the array", () => {
+    const actual1 = [{ one: 1 }, { two: 2 }, { three: 3 }, { four: 4 }];
+    myPopFunction(actual1);
+    const expected1 = [{ one: 1 }, { two: 2 }, { three: 3 }];
+    expect(actual1).toEqual(expected1);
+
+    const actual2 = ["fire", "water", "earth", "air"];
+    myPopFunction(actual2);
+    const expected2 = ["fire", "water", "earth"];
+    expect(actual2).toEqual(expected2);
   });
 
   test("returns the removed element from the array", () => {
@@ -67,6 +75,10 @@ describe("myPopFunction()", () => {
     expect(actual2).toBe(expected2);
   });
 
+  test("returns undefined if the array is empty", () => {
+    expect(myPopFunction([])).toBeUndefined();
+  });
+
   test("changes the original array's length", () => {
     const array1 = [{ one: 1 }, { two: 2 }, { three: 3 }];
     myPopFunction(array1);
@@ -78,18 +90,6 @@ describe("myPopFunction()", () => {
     myPopFunction(array2);
     const actual2 = array2.length;
     const expected2 = 3;
-    expect(actual2).toEqual(expected2);
-  });
-
-  test("removes the last element from the array", () => {
-    const actual1 = [{ one: 1 }, { two: 2 }, { three: 3 }, { four: 4 }];
-    myPopFunction(actual1);
-    const expected1 = [{ one: 1 }, { two: 2 }, { three: 3 }];
-    expect(actual1).toEqual(expected1);
-
-    const actual2 = ["fire", "water", "earth", "air"];
-    myPopFunction(actual2);
-    const expected2 = ["fire", "water", "earth"];
     expect(actual2).toEqual(expected2);
   });
 
