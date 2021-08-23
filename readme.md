@@ -50,7 +50,7 @@ The output will be printed to your terminal.
 
 This repository contains the following files that you may need to edit or want to take a look at:
 
-- `index.js`: This is where you will write your code. This is the only file you should need to edit. 
+- `index.js`: This is where you will write your code. This is the only file you should need to edit.
 - `index.test.js`: All of the tests for the functions.
 
 ### Tasks
@@ -67,3 +67,34 @@ Please add and commit regularly. You _should not_ end up with a single additiona
 
 You will find examples and descriptions in both the `index.js` file and in the `index.test.js` file.
 
+### Hints
+
+#### `myPushFunction`
+
+- The `array` parameter points to the same array that was passed in. That means if you change what value is at an index on the `array` parameter, it will change the value of the original array (since they're the same array!).
+- What index do we want to add our new value to? What if the length of the array changes?
+
+#### `myPopFunction`
+
+- What happens if you change the length property of an array?
+
+#### `myIncludesFunction`
+
+- You're going to have to check every single element to see if it's the element you're searching for.
+
+#### `mySliceFunction`
+
+- For this one, you are not mutating the original array. That means you'll need a new one!
+- You'll need a few if checks to check if the start and index were:
+  - `undefined`, because no value was passed in for them
+  - negative
+  - past the length of the array
+
+#### `myReverseFunction`
+
+- You can solve the tests that just ask you to return a reversed array by looping through the original array and putting them in a new array in the opposite order. But to solve the full problem, you'll have to manipulate the values at indices in the _original_ array. Plan out (paper and pen can help here) which values will need to move to which indices.
+- To swap values in two different variables (or properties, as in an array's values), you usually need a third variable to store one in temporarily.
+
+#### `myUnshiftFunction`
+
+- Think about what index each value moves to when adding something to the front of an array. What index does our new value go into? Where does the value that was there go to now? Paper and pen can help here as well.
