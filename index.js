@@ -64,6 +64,13 @@ function myReverseFunction(array) {}
  */
 function myUnshiftFunction(array, newElement) {}
 
+/**
+ * Removes the first element of the array and returns the removed element, or undefined if the array is empty. Do not use the shift method.
+ * @param {Array[*]} array - an array of any kind of elements.
+ * @returns {*} - the removed element
+ */
+function myShiftFunction(array) {}
+
 module.exports = {
   myPushFunction,
   myPopFunction,
@@ -73,4 +80,5 @@ module.exports = {
   myJoinFunction,
   myReverseFunction,
   myUnshiftFunction,
+  myShiftFunction,
 };
