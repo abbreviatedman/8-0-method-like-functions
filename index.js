@@ -54,7 +54,18 @@ function myJoinFunction(array, separator) {}
  * @param {Array[*]} array - an array of any kind of elements
  * @returns {Array[*]} returns a new array with the elements reversed.
  */
-function myReverseFunction(array) {}
+function myReverseFunction(array) {
+  const answer = [];
+  const copy = array.slice();
+
+  for (let i = 0; i < array.length; i++) {
+    const element = copy[i];
+    array[array.length - i - 1] = element;
+    answer.unshift(element)
+  }
+
+  return answer;
+}
 
 /**
  * Adds an element to the front of the array. Do not use the unshift method.
